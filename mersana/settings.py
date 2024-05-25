@@ -41,8 +41,10 @@ INSTALLED_APPS = [
     'account_app',
 
     # other app
-    'django_render_partial'
+    'django_render_partial',
+    'sweetify',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -53,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'
 
 ROOT_URLCONF = 'mersana.urls'
 

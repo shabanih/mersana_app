@@ -185,55 +185,40 @@ document.getElementById("demo").innerHTML =
 
 // end date & time
 
-/*
-    Carousel Images
-*/
-$('#carousel-example-1').on('slide.bs.carousel', function (e) {
-    /*
-        CC 2.0 License Iatek LLC 2018 - Attribution required
-    */
-    var $e = $(e.relatedTarget);
-    var idx = $e.index();
-    var itemsPerSlide = 5;
-    var totalItems = $('#carousel-example-1 .carousel-item').length;
+// show alert for comment form
+document.getElementById('commentForm').addEventListener('submit', function(e) {
+    // Prevent the default form submission behavior
+    e.preventDefault();
 
-    if (idx >= totalItems-(itemsPerSlide-1)) {
-        var it = itemsPerSlide - (totalItems - idx);
-        for (var i=0; i<it; i++) {
-            // append slides to end
-            if (e.direction=="right") {
-                $('#carousel-example-1 .carousel-item').eq(i).appendTo('#carousel-example-1 .carousel-inner');
-            }
-            else {
-                $('#carousel-example-1 .carousel-item').eq(0).appendTo('#carousel-example-1 .carousel-inner');
-            }
+    // Get all form fields
+    var formFields = this.elements;
+
+    // Flag to track if any field is empty
+    var isAnyFieldEmpty = false;
+
+    // Loop through each form field
+    for (var i = 0; i < formFields.length; i++) {
+        // Check if the field is an input element and if it's empty
+        if (formFields[i].nodeName === 'INPUT' && !formFields[i].value.trim()) {
+            // Set flag to true if any field is empty
+            isAnyFieldEmpty = true;
+            break; // No need to continue checking once an empty field is found
         }
     }
-});
 
-/*
-    Carousel Cards
-*/
-$('#carousel-example-2').on('slide.bs.carousel', function (e) {
-    /*
-        CC 2.0 License Iatek LLC 2018 - Attribution required
-    */
-    var $e = $(e.relatedTarget);
-    var idx = $e.index();
-    var itemsPerSlide = 4;
-    var totalItems = $('#carousel-example-2 .carousel-item').length;
+    // If any field is empty, show an alert
+    if (isAnyFieldEmpty) {
+        alert('لطفا هر دو فیلد را تکمیل نمایید.');
+    } else {
+        // If all fields are filled, show a success message
+        alert('ممنونم که به ارسال نظر اهمیت دادین !');
 
-
-    if (idx >= totalItems-(itemsPerSlide-1)) {
-        var it = itemsPerSlide - (totalItems - idx);
-        for (var i=0; i<it; i++) {
-            // append slides to end
-            if (e.direction=="right") {
-                $('#carousel-example-2 .carousel-item').eq(i).appendTo('#carousel-example-2 .carousel-inner');
-            }
-            else {
-                $('#carousel-example-2 .carousel-item').eq(0).appendTo('#carousel-example-2 .carousel-inner');
-            }
-        }
+        // Optionally, submit the form after showing the alert
+        this.submit();
     }
 });
+// show alert for comment form
+
+
+
+
