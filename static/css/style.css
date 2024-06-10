@@ -8734,7 +8734,7 @@ h1, h2, h3, h4, h5,
 
 .gallery {
   display: block;
-  height: 350px;
+  height: 200px;
   position: relative; }
   .gallery .icon {
     width: 50px;
@@ -8783,7 +8783,7 @@ h1, h2, h3, h4, h5,
   .pricing-entry p .per {
     font-size: 12px; }
   .pricing-entry .img {
-    height: 150px;
+    height: 320px;
     background-position: top center !important; }
   .pricing-entry .button {
     margin-bottom: 0;
@@ -8841,7 +8841,9 @@ h1, h2, h3, h4, h5,
       display: flex;
     align-items: center;
     justify-content: center;
-    background: #5d50c6; }
+    background: #5d50c6;
+  width: 100px;
+}
   .blog-entry .meta-date span {
     display: block;
     color: #fff; }
@@ -9148,15 +9150,17 @@ textarea.form-control {
 .user-img {
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center; }
+  background-position: center center;
+  box-shadow: 2px 2px 20px rgb(255, 183, 0);
+}
 
 .testimony-section {
   position: relative; }
   .testimony-section .owl-carousel {
     margin: 0; }
   .testimony-section .owl-carousel .owl-stage-outer {
-    padding-top: 1em;
-    padding-bottom: 2em;
+    /*padding-top: 1em;*/
+    /*padding-bottom: 2em;*/
     position: relative; }
   .testimony-section .owl-nav {
     position: absolute;

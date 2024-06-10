@@ -218,7 +218,3 @@ document.getElementById('commentForm').addEventListener('submit', function(e) {
     }
 });
 // show alert for comment form
-
-
-
-
