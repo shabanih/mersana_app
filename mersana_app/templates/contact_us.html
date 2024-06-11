@@ -1,0 +1,99 @@
+{% extends 'partials/base.html' %}
+
+{% block title %}
+	ارتباط با من
+{% endblock %}
+
+{% block content %}
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('/static/images/contact_image.png');">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center fadeInUp ftco-animated">
+            <h1 class="mb-1 bread">ارتباط با من</h1>
+{#            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward">#}
+{#            </i></a></span> <span>Contact <i class="ion-ios-arrow-forward"></i></span></p>#}
+          </div>
+        </div>
+      </div>
+    </section>
+ 
+    <section class="ftco-section contact-section mt-4">
+       <div class="container">
+                            <div class="row">
+                              <div class="col-12">
+                                <div class="form-group">
+                                  {% if messages %}
+                                  {% for message in messages  %}
+
+                                  {% if message.tags == 'success' %}
+                                  <div class="alert alert-success">
+                                    {{message}}
+                                  </div>
+                                  {% else %}
+                                  <div class="alert alert-danger">
+                                    {{message}}
+                                  </div>
+                                  {% endif %}
+
+                                  {% endfor %}
+                                  {% endif %}
+                        </div>
+                        </div></div></div>
+      <div class="container">
+        <div class="row d-flex mb-5 contact-info">
+          <div class="col-md-4 d-flex">
+              {% for contact in contacts %}
+          	<div class="bg-light align-self-stretch box p-4 text-center">
+          		<h3 class="mb-4">آدرس</h3>
+	            <p>{{ contact.address }}</p>
+	          </div>
+          </div>
+          <div class="col-md-4 d-flex">
+          	<div class="bg-light align-self-stretch box p-4 text-center">
+          		<h3 class="mb-4">شماره تماس</h3>
+	            <p><a href="#">{{ contact.phone }}</a></p>
+	          </div>
+          </div>
+          <div class="col-md-4 d-flex">
+          	<div class="bg-light align-self-stretch box p-4 text-center">
+          		<h3 class="mb-4">آدرس ایمیل</h3>
+	            <p><a href="#">{{ contact.email }}</a></p>
+	          </div>
+          </div>
+   {% endfor %}
+        </div>
+      </div>
+    </section>
+                       
+    
+    <section class="ftco-section ftco-no-pt ftco-no-pb contact-section mt-1">
+			<div class="container">
+				<div class="row d-flex align-items-stretch no-gutters">
+					<div class="col-md-12 p-4 p-md-3 order-md-last bg-light">
+                             
+                                 {{ form.non_field_errors }}
+                                <form method="POST" novalidate>
+                                {% csrf_token %}
+                              {{ form.name }}
+                              {{ form.mobile }}
+
+                              {{ form.subject }}
+                                <small class="text-danger">{{ form.subject.errors }}</small>
+
+                              {{ form.message }}
+                                <small class="text-danger">{{ form.message.errors }}</small>
+                            <div class="text-center">
+                                <button type="submit" value="" 
+                                 class="btn btn-primary py-2 px-4">ارسال پیام</button>
+                            </div>
+                         
+                            </form>
+                            <h5 class="text-success text-center"></h5>
+                        </div>
+					</div>
+				</div>
+		
+		</section>
+	
+{% endblock %}
