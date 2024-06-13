@@ -89,13 +89,18 @@ main {
    font-size: 16px;
    }
 
+.book_name{
+    color: #efedea;
+    background-color: #0d8ecf;
+    border-radius: 6px;
+    box-shadow: 2px 4px 10px yellow;
+}
  .book_text{
      color: rgb(255, 255, 255);
      font-size: 16px;
      display: flex;
      text-align: justify;
-     backdrop-filter: blur(10px)
-
+     backdrop-filter: blur(10px);
  }
 
   @media (max-width: 768px) {

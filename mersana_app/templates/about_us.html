@@ -18,16 +18,19 @@
       </div>
     </section>
     <div class="container">
+    {% for about in abouts %}
         <div class="row justify-content-center mb-5 pb-2">
           <div class="col-md-8 text-center heading-section ftco-animate fadeInUp ftco-animated">
             <h2 class="mb-4 mt-4"> من مرسانا هستم</h2>
             <p>
-                من مرسانا هستم و تهران زندگی کنم. 9 سالمه و دختر پر تلاش و سختکوشی هستم.  به آینده خوش بین هستم و 
-               معتقدم برای رسیدن به هدف باید تلاش کرد که لازمه آن آگاهی داشتن است. واسه همین کتاب رو دوست دارم و عاشق کتاب خوندن هستم و 
-                از اینکه در مورد موضوعات مختلف بتونم اطلاعات داشته باشم خوشحال میشم. من عاشق رنگ صورتی، بنفش و آبی هستم.
+                {{ about.description|linebreaksbr }}
                </p>
           </div>
-        </div>
+      <div class="col-md-4 p-4 p-md-3 order-md-last">
+                        <img src="/static/images/8.png" width="300" height="400" alt="" style="float: left">
+                    </div>
+                            </div>
+    {% endfor %}
     </div>
 
 	

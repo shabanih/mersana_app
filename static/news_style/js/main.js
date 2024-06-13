@@ -58,7 +58,7 @@
         dots: false,
         navText: ['<i class="lnr lnr-arrow-left"></i>', '<i class="lnr lnr-arrow-right"></i>'],
         smartSpeed: 800,
-        autoplay: false,
+        autoplay: true,
     });
 
     /*-------------------

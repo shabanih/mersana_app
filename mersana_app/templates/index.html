@@ -137,122 +137,48 @@
 			<div class="overlay"></div>
 			<div class="container">
 				<div class="row justify-content-center mb-2">
-                     <div class="col-md-8 text-center heading-section ftco-animate fadeInUp ftco-animated">
+                     <div class="col-md-8 text-center heading-section ftco-animate fadeInUp ftco-animated p-0">
                       <h2 class="text-center"><span>معرفی</span> کتاب ماه</h2>
                   <p class="book-header-title">
                       مرسانا : کتاب همیشه ما را به یک سفر جدید میبره!
                       </p>
                       </div>
+                </div>
 				<div class="row d-flex justify-content-between">
                     {% for book in books %}
 					<div class="col-md-4">
-						<h2 class="mt-2 text-center">{{ book.title_book }}</h2>
-						<p class="book_text">
-                            {{ book.description }}
+						<h3 class=" book_name text-center">{{ book.title_book }}</h3>
+						<p class="book_text p-3">
+                            {{ book.description|linebreaksbr }}
                         </p>
                    
-						<p class="mb-0"><a href="#" class="btn btn-secondary px-4 py-1">اطلاعات بیشتر</a></p>
+{#						<p class="mb-0"><a href="#" class="btn btn-secondary px-4 py-1">اطلاعات بیشتر</a></p>#}
 					
 					</div>
                   <div class="col-md-4 mt-4">
                          <div class="blog-entry d-flex justify-content-center">
-                            <img src="{{ book.image_1.url }}" width="250" height="300" alt="">
+                            <img src="{{ book.image.url }}" width="350" height="450" alt="">
                         </div>
+                        <div class="blog-entry d-flex justify-content-center book_text">
+                            <ul>
+                                <li> موضوع: {{ book.subject }}</li>
+                                <li>نویسنده: {{ book.author }}</li>
+                                <li>ناشر: {{ book.publisher }}</li>
+                                <li>مترجم: {{ book.translator }}</li>
+                                <li>تعداد صفحه: {{ book.page_counts }}</li>
+                                <li>سال انتشار: {{ book.year_of_publication }}</li>
+                               </ul>
+                        </div>
+                   <audio controls class="w-100 text-center">
+                    <source src="{{ book.music_book }}" type="audio/mp3">
+                     </audio>
+                        
                         </div>
                       {% endfor %}
 				</div>
 			</div>
+          
 		</section>
-    
-{#    <section class="ftco-intro" style="background-image: url(/static/images/book_background.jpg); background-position: 50% -109.5px;" data-stellar-background-ratio="0.5">#}
-{#			<div class="overlay"></div>#}
-{#        <div class="container">#}
-{#				<div class="row justify-content-center mb-2">#}
-{#                     <div class="col-md-8 text-center heading-section ftco-animate fadeInUp ftco-animated">#}
-{#                      <h2><span>معرفی</span> کتاب ماه</h2>#}
-{#                  <p>#}
-{#                      مرسانا : کتاب همیشه ما را به یک سفر جدید میبرد!#}
-{#                      </p>#}
-{##}
-{#                      </div>#}
-{#                   {% for book in books %}#}
-{#		<div class="row text-center">#}
-{#          <div class="col-md-4 col-lg-4 ftco-animate fadeInUp ftco-animated">#}
-{#            <div class="blog-entry d-flex justify-content-center">#}
-{#                <img src="{{ book.image_1.url }}" width="250" height="300" alt="">#}
-{#            </div>#}
-{#              <p class="book_subject pt-0">  موضوع : {{ book.subject }}</p>#}
-{#          </div>#}
-{#            <div>#}
-{#                    #}
-{#                </div>#}
-{#           <div class="col-md-4 col-lg-4 align-items-center">#}
-{#              <div class="text bg-white p-2">#}
-{#                <h3 class="heading p-2"><a href="#">{{ book.title_book }}</a></h3>#}
-{#                  <p class="book_text p-1">#}
-{#                      {{ book.short_description }}#}
-{#              </p>#}
-{#                     <div>#}
-{#                <audio controls class="w-100 text-center">#}
-{#                    <source src="{{ book.music_book }}" type="audio/mp3">#}
-{#                     </audio>#}
-{#            </div>#}
-{#                <div class="d-flex justify-content-end mt-4">#}
-{#	                <a href="#" class="btn btn-secondary">اطلاعات بیشتر</a>#}
-{#                </div>#}
-{#              </div>#}
-{#                    </div>#}
-{#            </div>#}
-{#                {% endfor %}#}
-{#			</div>#}
-{#        </div>#}
-{#		</section>#}
-    
-{#    !<--My Books-->#}
-{#   <section class="ftco-section bg-light">#}
-{#			<div class="container">#}
-{#				<div class="row justify-content-center mb-2 pt-4">#}
-{#                     <div class="col-md-8 text-center heading-section ftco-animate fadeInUp ftco-animated">#}
-{#                      <h2 class="text-center"><span>معرفی</span> کتاب ماه</h2>#}
-{#                  <p class="text-center">#}
-{#                      مرسانا : کتاب همیشه ما را به یک سفر جدید میبرد!#}
-{#                      </p>#}
-{##}
-{#                      </div>#}
-{#                 </div>#}
-{#                {% for book in books %}#}
-{#		<div class="row text-center justify-content-between">#}
-{#          <div class="col-md-4 col-lg-4 ftco-animate fadeInUp ftco-animated">#}
-{#            <div class="blog-entry d-flex justify-content-center">#}
-{#                <img src="{{ book.image_1.url }}" width="250" height="300" alt="">#}
-{#                <img src="/static/images/teacher-1.jpg" width="250" height="300" alt="">#}
-{#				<div class="meta-date">#}
-{#                    <p class="book_subject pt-0">  موضوع : {{ book.subject }}</p>#}
-{#                </div>#}
-{#            </div>#}
-{#          </div>#}
-{#           <div class="col-md-4 col-lg-4 align-items-center">#}
-{#              <div class="text bg-white p-2">#}
-{#                <h3 class="heading p-2"><a href="#">{{ book.title_book }}</a></h3>#}
-{#                  <p class="book_text p-1">#}
-{#                      {{ book.short_description }}#}
-{#              </p>#}
-{#                     <div>#}
-{#                <audio controls class="w-100 text-center">#}
-{#                    <source src="{{ book.music_book }}" type="audio/mp3">#}
-{#                     </audio>#}
-{#            </div>#}
-{#                <div class="d-flex justify-content-end mt-4">#}
-{#	                <a href="#" class="btn btn-secondary">اطلاعات بیشتر</a>#}
-{#                </div>#}
-{#              </div>#}
-{#                    </div>#}
-{#            </div>#}
-{#                {% endfor %}#}
-{#          </div>#}
-{#       #}
-{#			#}
-{#		</section>#}
     
     {#My Travel#}
    <section class="ftco-section testimony-section bg-light">
@@ -486,7 +412,7 @@
             <h2 class="text-center mt-0"><span>گالری</span> تصاویر من</h2>
           </div>
             </div>	
-    		<div class="row g-1">
+    		<div class="row g-1 d-flex justify-content-center">
                 {% for picture in pictures %}
     <div class="col-md-2 ftco-animate fadeInUp ftco-animated">
         <a href="{{ picture.image.url }}" class="gallery image-popup img d-flex align-items-center" 
