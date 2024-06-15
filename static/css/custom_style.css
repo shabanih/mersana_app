@@ -220,18 +220,21 @@ main {
 .room-section {
 	padding-bottom: 0;
     display: grid;
+
 }
 
 .rooms-page-item {
 	/*-webkit-box-shadow: 2px 15px 75px 6px #EBEBEB;*/
-	/*box-shadow: 2px 15px 75px 6px #EBEBEB;*/
+	box-shadow: 2px 10px 20px 6px rgba(150, 157, 196, 0.98);
 	margin-bottom: 10px;
+    background: rgb(236, 229, 229);
 }
 
 .rooms-page-item .room-pic-slider .single-room-pic img {
 	height: 280px;
     width: 100%;
     object-fit:cover ;
+
 }
 
 .rooms-page-item .room-pic-slider.owl-carousel .owl-nav button[type=button] {
@@ -246,6 +249,7 @@ main {
 	top: 50%;
 	-webkit-transform: translateY(-34.5px);
 	transform: translateY(-34.5px);
+
 }
 
 .rooms-page-item .room-pic-slider.owl-carousel .owl-nav button[type=button].owl-next {
@@ -254,10 +258,14 @@ main {
 }
 
 .news_caption p{
-    color: #a71d2a;
+    color: #ffffff;
     font-size: 16px;
     font-weight: 600;
-    padding-top: 1rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    margin: 0;
+    background-color: rgba(122, 132, 203, 0.98);
+
 }
 /*---------------------
  END News Section

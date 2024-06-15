@@ -97,9 +97,9 @@
              </div>
             </div>
             	 <div class="rooms-page-item">
-                   <div class="row">
+                   <div class="row g-0">
                       {% for new in news %}
-                    <div class="col-lg-6 col-md-6 ">
+                    <div class="col-lg-6 col-md-6 slide-shadow ">
                         <div class="room-pic-slider owl-carousel owl-loaded owl-drag">
                         <div class="owl-stage-outer">
                             <div class="owl-stage"  style="transform: translate3d(-2070px, 0px, 0px); transition: all 0s ease 0s;">
@@ -133,17 +133,19 @@
     </section>
     
     {#    !<--My Books-->#}
-    <section class="ftco-intro" style="background-image: url(/static/images/book2.jpg);background-size: cover; background-position: 50% -9.50006px;" data-stellar-background-ratio="0.5">
-			<div class="overlay"></div>
-			<div class="container">
+    <div class="container pt-3">
 				<div class="row justify-content-center mb-2">
                      <div class="col-md-8 text-center heading-section ftco-animate fadeInUp ftco-animated p-0">
                       <h2 class="text-center"><span>معرفی</span> کتاب ماه</h2>
-                  <p class="book-header-title">
+                  <p class="text-center">
                       مرسانا : کتاب همیشه ما را به یک سفر جدید میبره!
                       </p>
                       </div>
                 </div>
+            </div>
+    <section class="ftco-intro" style="background-image: url(/static/images/bg-book.jpg);background-size: cover; background-position: 50% -9.50006px;" data-stellar-background-ratio="0.5">
+			<div class="overlay"></div>
+			
 				<div class="row d-flex justify-content-between">
                     {% for book in books %}
 					<div class="col-md-4">
@@ -176,7 +178,7 @@
                         </div>
                       {% endfor %}
 				</div>
-			</div>
+		
           
 		</section>
     
