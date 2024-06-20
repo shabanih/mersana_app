@@ -1,9 +1,6 @@
-from email._header_value_parser import Section
-
-from sweetify import sweetify
 from django.contrib import messages
 from django.http import HttpRequest
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic import TemplateView
 
@@ -27,16 +24,16 @@ class IndexView(TemplateView):
 
         context['visit_count'] = visit_count.count
         context['news'] = LastNews.objects.filter(is_active=True).order_by('-created_at')[:2]
-        context['sliders'] = Slider.objects.filter(is_active=True)
+        context['sliders'] = Slider.objects.filter(is_active=True).order_by('-created_at')
         context['comments'] = Comment.objects.filter(is_active=True).order_by('-created_at')[:12]
         context['books'] = Book.objects.filter(is_active=True).order_by('-created_at')
         context['trips'] = MersanaTrip.objects.filter(is_active=True)
-        context['pianos'] = MersanaPiano.objects.filter(is_active=True)
-        context['paints'] = MersanaPaints.objects.filter(is_active=True)
+        context['pianos'] = MersanaPiano.objects.filter(is_active=True).order_by('-date')
+        context['paints'] = MersanaPaints.objects.filter(is_active=True).order_by('-date')[:7]
         context['schools'] = MersanaSchool.objects.filter(is_active=True)
-        context['friends'] = MersanaFriends.objects.filter(is_active=True)
+        context['friends'] = MersanaFriends.objects.filter(is_active=True).order_by('-create_at')
         context['musics'] = MersanaMusic.objects.filter(is_active=True).order_by('-date')
-        context['sports'] = MersanaSports.objects.filter(is_active=True).order_by('created_at')
+        context['sports'] = MersanaSports.objects.filter(is_active=True).order_by('-created_at')
         context['pictures'] = MersanaPic.objects.filter(is_active=True).order_by('-created_at')[:12]
         context['titles'] = SectionTitle.objects.filter(is_active=True)
         context['sectionTitles'] = SectionTitlePage.objects.filter(is_active=True).select_related('section_title')
@@ -51,12 +48,12 @@ def show_images(request):
     return context
 
 
-def news_detail(request: HttpRequest, id):
-    new = lastNewsGallery.objects.get(id=id)
-    context = {
-        'new': new
-    }
-    return context
+# def news_detail(request: HttpRequest, pk):
+#     new = lastNewsGallery.objects.get(id=pk)
+#     context = {
+#         'new': new
+#     }
+#     return context
 
 
 def comment(request: HttpRequest):
@@ -95,8 +92,8 @@ def contact_us(request: HttpRequest):
         message = request.POST['message']
 
         if form.is_valid():
-            comment = ContactUs.objects.create(name=name, subject=subject, message=message, mobile=mobile)
-            comment.save()
+            comments = ContactUs.objects.create(name=name, subject=subject, message=message, mobile=mobile)
+            comments.save()
             messages.success(request, 'پیام شما با موفقیت ارسال گردید. پس از بررسی در صورت ثبت شماره تماس و یا ایمیل با شما ارتباط  خواهم گرفت.')
             return redirect(reverse('contact_us'))
         else:
@@ -110,8 +107,8 @@ def contact_us(request: HttpRequest):
 
 
 def site_header_component(request):
-    return render(request, 'partials/header_component.html',{})
+    return render(request, 'partials/header_component.html', {})
 
 
 def site_footer_component(request):
-    return render(request, 'partials/footer_component.html',{})
+    return render(request, 'partials/footer_component.html', {})

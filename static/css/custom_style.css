@@ -2,68 +2,6 @@
     color: rgba(255, 255, 255, 0.7);;
     font-size: 16px;
 }
-.main-image {
-  --width: min(90vw,1000px);
-  --offest: 0 -0.7rem;
-
-}
-/*paint slider*/
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-main {
-  height: 100vh;
-  width: 100svh;
-  display: grid;
-  place-items: center;
-}
-
-.list {
-  width: var(--width);
-  list-style-type: none;
-  display: flex;
-  align-items: center;
-  gap: 0.15rem;
-
-  &:hover .item:not(:hover)::after { background-color: rgba(0,0,0,0.6); }
-
-  & .item {
-    position: relative;
-    flex: 1;
-    aspect-ratio: 1;
-    border-radius: 0.25rem;
-    transition: flex 0.8s, margin 0.6s;
-    overflow: hidden;
-
-    &::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      transition: background-color 0.9s;
-    }
-
-    &:hover {
-      flex: 9;
-      z-index: 10;
-      box-shadow: 0 0 5px rgba(0,0,0,0.3);
-    }
-
-    &:hover + .item { flex: 4; margin: var(--offest); z-index: 5; }
-    &:has(+ :hover) { flex: 4; margin: var(--offest); z-index: 5; }
-
-    & img {
-      position: absolute;
-      width: 100%;
-      aspect-ratio: 1;
-      object-fit: cover;
-    }
-  }
-}
-/*end paint slider*/
 
  .testimony-wrap .user-img-trip {
     width: 600px;
@@ -105,11 +43,15 @@ main {
 
   @media (max-width: 768px) {
       .book_text{
-          padding: 20px;
           color: #ffffff;
           font-weight: 600;
+          margin: 2rem;
                }
   }
+.boot-detail{
+    backdrop-filter: blur(5px);
+    margin: 0;
+}
 
  .book_subject{
   color: #efedea;
@@ -134,7 +76,7 @@ main {
     max-height: 400px;
     width: 100%;
     overflow-y: scroll;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
     box-shadow: 2px 2px 20px rgb(236, 160, 48);
 }
 
@@ -149,13 +91,22 @@ main {
     text-shadow: 2px 4px 10px black;
 }
 .comment_name{
-    color: #ea0404;
+    color: rgba(219, 6, 243, 0.98);
+    position: relative;
+    z-index: 22;
+    font-weight: 900;
+    font-size: 20px;
+
 }
 .comment_message{
-    color: #6f42c1;
-    font-weight: bold;
+    position: relative;
+    color: #111010;
+    font-weight: 900;
     font-size: 16px;
     padding-right: 1rem;
+    z-index: 1;
+    box-shadow: 2px 4px 6px white ;
+    background-color: white;
 }
 
 
@@ -285,3 +236,56 @@ main {
         font-size: 18px;
     }
 }
+
+/*paint slider*/
+
+.main-image {
+  --width: min(90vw,1000px);
+  --offest: 0 -0.7rem;
+
+}
+
+.list {
+  width: var(--width);
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+
+  &:hover .item:not(:hover)::after { background-color: rgba(0,0,0,0.6); }
+
+  & .item {
+    position: relative;
+    flex: 1;
+    aspect-ratio: 1;
+    border-radius: 0.25rem;
+    transition: flex 0.8s, margin 0.6s;
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transition: background-color 0.9s;
+    }
+
+    &:hover {
+      flex: 9;
+      z-index: 10;
+      box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    }
+
+    &:hover + .item { flex: 4; margin: var(--offest); z-index: 5; }
+    &:has(+ :hover) { flex: 4; margin: var(--offest); z-index: 5; }
+
+    & img {
+      position: absolute;
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: inherit;
+    }
+  }
+}
+/*end paint slider*/
+

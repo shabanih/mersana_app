@@ -146,7 +146,7 @@
     <section class="ftco-intro" style="background-image: url(/static/images/bg-book.jpg);background-size: cover; background-position: 50% -9.50006px;" data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
 			
-				<div class="row d-flex justify-content-between">
+				<div class="row d-flex justify-content-around">
                     {% for book in books %}
 					<div class="col-md-4">
 						<h3 class=" book_name text-center">{{ book.title_book }}</h3>
@@ -157,11 +157,11 @@
 {#						<p class="mb-0"><a href="#" class="btn btn-secondary px-4 py-1">اطلاعات بیشتر</a></p>#}
 					
 					</div>
-                  <div class="col-md-4 mt-4">
+                  <div class="col-md-3 mt-4">
                          <div class="blog-entry d-flex justify-content-center">
                             <img src="{{ book.image.url }}" width="350" height="450" alt="">
                         </div>
-                        <div class="blog-entry d-flex justify-content-center book_text">
+                        <div class="blog-entry d-flex justify-content-center boot-detail">
                             <ul>
                                 <li> موضوع: {{ book.subject }}</li>
                                 <li>نویسنده: {{ book.author }}</li>
@@ -171,7 +171,7 @@
                                 <li>سال انتشار: {{ book.year_of_publication }}</li>
                                </ul>
                         </div>
-                   <audio controls class="w-100 text-center">
+                   <audio controls class="w-100 mt-3">
                     <source src="{{ book.music_book }}" type="audio/mp3">
                      </audio>
                         
@@ -203,7 +203,7 @@
                   <div class="user-img-trip mr-4" style="background-image: url({{ trip.image.url }})">
                   </div>
                 </div>
-                   <div class="caption text-center align-items-center">{{ trip.trip_title }} - {{ trip.trip_date  }}</div>
+                   <div class="caption text-center align-items-center">{{ trip.trip_title }} - {{ trip.city }} - {{ trip.trip_date  }}</div>
               </div>
                     {% endfor %}
             </div>
@@ -272,6 +272,8 @@
           </div>
         </div>
     	</div>
+  
+
     </section>
     
 {#  My School#}
@@ -290,11 +292,14 @@
                     {% for school in schools %}
 					<div class="col-md-6 course d-lg-flex ftco-animate fadeInUp ftco-animated">
 						<div class="img" style="background-image: url({{ school.image.url }});"></div>
-						<div class="text bg-light p-4">
+						<div class="text bg-light p-2">
 							<h3><a href="#">{{ school.school_name }}</a></h3>
-							<p class="subheading"><span>دوره:</span>{{ school.period }}</p>
-							<p class="subheading"><span>سال:</span> {{ school.date }}</p>
-							<p>
+                            <div class="d-flex justify-content-between">
+                              <p class="subheading p-1"><span>دوره:</span>{{ school.period }}</p>
+						    	<p class="subheading p-1"><span>سال:</span> {{ school.date }}</p>
+                            </div>
+						
+							<p class="mt-0" style="text-align: justify">
                                 {{ school.description }}
                             </p>
 						</div>
@@ -331,7 +336,7 @@
 {#                      <i class="icon-quote-left"></i>#}
                     </span>
                       <h4 style="color: #db10f2; font-weight: bold">{{ friend.name }}</h4>
-{#                        <h5 class="p-1" style="color: #a71d2a;">همکلاسی</h5>#}
+                        <h5 class="p-1" style="color: cornflowerblue;">{{ friend.important_title }}</h5>
                     <p>
                 {{ friend.description }}
 
@@ -348,7 +353,7 @@
       </div>
     </section>
     
-{#    Best Of My Music#}
+{#  Best Of My Music#}
     <section class="ftco-section testimony-section p-2">
     <div class="container">
               <hr class="bg-primary w-100 d-flex justify-content-center text-center">
@@ -374,7 +379,7 @@
 </div>
     </section>
     
-        {#    My sport#}
+{# My sport#}
      <section class="ftco-section testimony-section bg-light">
       <div class="container">
         <div class="row justify-content-center">
@@ -404,8 +409,8 @@
       </div>
     </section>
     
-
 {#    My picture#}
+
    <section class="ftco-gallery mb-4">
     	<div class="container-fluid">
         <div class="row d-flex justify-content-center mb-2 pb-2">
@@ -416,7 +421,7 @@
             </div>	
     		<div class="row g-1 d-flex justify-content-center">
                 {% for picture in pictures %}
-    <div class="col-md-2 ftco-animate fadeInUp ftco-animated">
+    <div class="col-md-2 ftco-animate fadeInUp ftco-animated mt-4">
         <a href="{{ picture.image.url }}" class="gallery image-popup img d-flex align-items-center" 
            style="background-image: url({{ picture.image.url }});">
             <div class="icon mb-4 d-flex align-items-center justify-content-center">

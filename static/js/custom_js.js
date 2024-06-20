@@ -217,4 +217,6 @@ document.getElementById('commentForm').addEventListener('submit', function(e) {
         this.submit();
     }
 });
-// show alert for comment form
+//end of  show alert for comment form
+
+//  image gallery

@@ -283,7 +283,7 @@ class Book(models.Model):
     subject = models.CharField(max_length=200, verbose_name='موضوع')
     short_description = models.TextField(verbose_name='توضیحات کوتاه')
     description = models.TextField(verbose_name='توضیحات اصلی')
-    music_book = models.URLField(null=True, verbose_name='لینک صدای داستان')
+    music_book = models.URLField(null=True, verbose_name='لینک صدای داستان', blank=True)
     image = ResizedImageField(upload_to='uploads/books', verbose_name='تصویر اصلی', null=True, blank=True)
 
     author = models.CharField(max_length=200, verbose_name='نویسنده')
